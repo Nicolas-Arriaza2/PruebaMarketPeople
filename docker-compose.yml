@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: ./backend # Indica la ubicación de tu backend
+    tty: true
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/myapp # Refleja la nueva ubicación
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3001:3000" # Asegúrate de exponer un puerto diferente para el frontend
+    volumes:
+      - ./frontend:/app # El punto de montaje puede ser diferente según tu configuración en Dockerfile del frontend
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: marketpeople
+      POSTGRES_PASSWORD: marketpeople
+      POSTGRES_DB: postgres_MP
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+
+
