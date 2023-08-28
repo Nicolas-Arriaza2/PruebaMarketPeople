@@ -14,7 +14,7 @@ module Myapp
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'http://localhost:3002'  # Cambia este puerto al que estás usando en tu frontend React
+        origins 'http://localhost:3001'  # Cambia este puerto al que estás usando en tu frontend React
         resource '*',
           headers: :any,
           methods: [:get, :post, :put, :patch, :delete, :options, :head]

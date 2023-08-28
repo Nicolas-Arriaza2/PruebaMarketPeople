@@ -44,11 +44,31 @@ Asegúrate de cumplir con los requisitos previos y sigue las instrucciones detal
    bundle install
    ```
 
-5. **Lanzamiento del servidor backend**:
+5. **Crear base de datos**:
+
+   ```
+   rails db:create
+   ```
+
+6. **Reestablecer base de datos y migrar**:
+
+   ```
+   rails db:migrate
+   ```
+
+7. **Resetear base de datos**:
+
+   ```
+   rails db:reset
+   ```
+
+8. **Lanzamiento del servidor backend**:
 
    ```
    rails s -b 0.0.0.0
    ```
+
+   Luego entrar a http://localhost:3000/
 
 ## Configuración del Frontend
 
@@ -61,7 +81,7 @@ Asegúrate de cumplir con los requisitos previos y sigue las instrucciones detal
 2. **Instalación de dependencias**:
 
    ```
-   npm install
+   npm i --legacy-peer-deps
    ```
 
 3. **Lanzamiento del servidor de desarrollo**:
@@ -71,3 +91,5 @@ Asegúrate de cumplir con los requisitos previos y sigue las instrucciones detal
    ```
 
    > **Nota**: Es probable que se te solicite confirmar si deseas ejecutar el servidor en un puerto distinto al default debido a conflictos de puertos. Simplemente confirma que deseas continuar.
+
+**Nota 2**: Revisar en qué puerto está el frontend y configurar el puerto en `application.rb` si es que fuese necesario.
